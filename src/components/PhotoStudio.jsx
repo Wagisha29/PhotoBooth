@@ -21,6 +21,7 @@ const PhotoStudio = () => {
     const [selectedFilter, setSelectedFilter] = useState("90s");
     const [isCapturing, setIsCapturing] = useState(false);
     const [photos, setPhotos] = useState([]);
+    const [showFlash, setShowFlash] = useState(false);
     const webcamRef = useRef(null);
 
     // Helper function to wait for a specific time
@@ -79,7 +80,11 @@ const PhotoStudio = () => {
           ]);
         };
 
-
+    const triggerFlash = async () => {
+        setShowFlash(true);
+        await delay(200); // Flash duration
+        setShowFlash(false);
+    };
 
     const countdownStep = async (value) => {
         setCountdown(value);
@@ -93,11 +98,12 @@ const PhotoStudio = () => {
         setShowResult(false);
 
         for(let i = 0; i < 3; i++){
-            await countdownStep("3..");
-            await countdownStep("2..");
-            await countdownStep("1..");
+            await countdownStep("3");
+            await countdownStep("2");
+            await countdownStep("1");
             await countdownStep("Smile!");
             await takePhoto();
+            await triggerFlash(); // Trigger flash after photo capture
             setCountdown(null);
             await delay(500);
         }
@@ -130,6 +136,7 @@ const PhotoStudio = () => {
                 <div className="studio-container">
                     <div className="studio-webcam">
                         {countdown && <div className="countdown-overlay">{countdown}</div>}
+                        {showFlash && <div className="flash-overlay"></div>}
 
                         <Webcam 
                             ref={webcamRef}
