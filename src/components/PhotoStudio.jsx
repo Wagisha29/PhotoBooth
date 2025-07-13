@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Webcam from 'react-webcam';
 import html2canvas from 'html2canvas';
 import './PhotoStudio.css';
+import MemoryText from './MemoryText';
 
 const filters = [
     "90s",
@@ -22,6 +23,9 @@ const PhotoStudio = () => {
     const [isCapturing, setIsCapturing] = useState(false);
     const [photos, setPhotos] = useState([]);
     const [showFlash, setShowFlash] = useState(false);
+    const [showMemoryInput, setShowMemoryInput] = useState(false);
+    const [memoryText, setMemoryText] = useState("");
+    const [finalMemoryText, setFinalMemoryText] = useState("");
     const webcamRef = useRef(null);
 
     // Helper function to wait for a specific time
@@ -96,6 +100,9 @@ const PhotoStudio = () => {
         setIsCapturing(true);
         setPhotos([]);
         setShowResult(false);
+        setShowMemoryInput(false);
+        setMemoryText("");
+        setFinalMemoryText("");
 
         for(let i = 0; i < 3; i++){
             await countdownStep("3");
@@ -108,12 +115,23 @@ const PhotoStudio = () => {
             await delay(500);
         }
         setIsCapturing(false);
-        setShowResult(true);
+        setShowMemoryInput(true); // Show memory input after photos are taken
+    }
+
+    const handleAddMemory = () => {
+        if (memoryText.trim()) {
+            setFinalMemoryText(memoryText.trim());
+            setShowMemoryInput(false);
+            setShowResult(true);
+        }
     }
 
     const handleReshoot = () => {
         setPhotos([]);
         setShowResult(false);
+        setShowMemoryInput(false);
+        setMemoryText("");
+        setFinalMemoryText("");
     }
 
     const handleDownload = async () => {
@@ -132,7 +150,7 @@ const PhotoStudio = () => {
 
     return (
         <div className='photostudio'>
-            {!showResult && (
+            {!showResult && !showMemoryInput && (
                 <div className="studio-container">
                     <div className="studio-webcam">
                         {countdown && <div className="countdown-overlay">{countdown}</div>}
@@ -170,6 +188,13 @@ const PhotoStudio = () => {
                 </div>
             )}  
 
+            <MemoryText 
+                memoryText={memoryText}
+                setMemoryText={setMemoryText}
+                onAddMemory={handleAddMemory}
+                isVisible={showMemoryInput}
+            />
+
             {showResult && (
                 <div className="studio-result slide-in-top">
                     <div 
@@ -185,6 +210,12 @@ const PhotoStudio = () => {
                                 />
                             </div>
                         ))}
+
+                        {finalMemoryText && (
+                            <p className="memory-caption">
+                                "{finalMemoryText}"
+                            </p>
+                        )}
                         
                         <p className="photostrip-caption">
                             Wagisha Photo Booth •{" "}
