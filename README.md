@@ -5,6 +5,8 @@ Take photos, add a personal memory, and download your custom photo strip — all
 
 # 🚀 Live Demo
 👉 Try the Photo Booth on Vercel! 
+https://photo-booth-red.vercel.app/
+
 
 # ✨ Features
 Webcam Photo Capture: Take a series of 3 photos with a countdown and fun camera flash.
