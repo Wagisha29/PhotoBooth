@@ -1,13 +1,24 @@
-# React + Vite
+# 📸 Wagisha's Photo Booth
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun, interactive web app to capture memories with a retro photo booth experience!
+Take photos, add a personal memory, and download your custom photo strip — all in a beautiful, responsive interface.
 
-Currently, two official plugins are available:
+# 🚀 Live Demo
+👉 Try the Photo Booth on Vercel! 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# ✨ Features
+Webcam Photo Capture: Take a series of 3 photos with a countdown and fun camera flash.
+Retro Filters: Choose from 90s, 2000s, Noir, Fisheye, Rainbow, Glitch, and Crosshatch effects.
+Add a Memory: After snapping your photos, add a short memory or caption (with a character limit).
+Photo Strip Download: Download your photo strip with your memory at the bottom.
+Responsive Design: Works beautifully on desktop and mobile devices.
+Modern UI: Soft pastel backgrounds, smooth animations, and a delightful user experience.
 
-## Expanding the ESLint configuration
+# 🖥️ Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# PhotoBooth
+# 🛠️ Tech Stack
+React (with hooks)
+Vite (for fast development)
+html2canvas (for photo strip download)
+CSS (custom, responsive, modular)
+Deployed on Vercel
