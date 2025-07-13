@@ -10,29 +10,36 @@
 
 .memory-text-container {
   background: rgba(152, 94, 161, 0.95);
-  padding: 40px;
+  padding: 40px 40px;
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
   border: 3px solid #fef08a;
-  min-width: 400px;
+  min-width: 500px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .memory-text-container h1 {
   color: white;
   font-size: 1.8rem;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   font-family: 'Pacifico', cursive;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .memory-text-container input {
   width: 100%;
+  max-width: 400px;
   padding: 15px;
   border: 2px solid #fef08a;
   border-radius: 15px;
   font-size: 1.1rem;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   background: rgba(255, 255, 255, 0.9);
   color: rgb(152, 94, 161);
   font-family: inherit;
@@ -42,6 +49,13 @@
   outline: none;
   border-color: #fef08a;
   box-shadow: 0 0 15px rgba(254, 240, 138, 0.5);
+}
+
+.char-counter {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  font-style: italic;
 }
 
 .memory-text-container button {
@@ -55,6 +69,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(254, 240, 138, 0.3);
+  margin-top: 0;
 }
 
 .memory-text-container button:hover {
