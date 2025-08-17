@@ -460,18 +460,18 @@
   .strip-slide-in {
     opacity: 1;
     transform: translateY(0);
-    height: 70vh;
+    height: 80vh;
   }
 
   /* Responsive adjustments for strip-slide-in */
   @media (max-width: 768px) {
     .strip-slide-in {
-      height: 70vh;
+      height: 80vh;
     }
   }
 
   @media (max-width: 480px) {
     .strip-slide-in {
-      height: 70vh;
+      height: 80vh;
     }
   }
