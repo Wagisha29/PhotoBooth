@@ -196,7 +196,7 @@ const PhotoStudio = () => {
             />
 
             {showResult && (
-                <div className="studio-result slide-in-top">
+                <div className="studio-result">
                     <div 
                         className={`photostrip-frame ${showResult ? "strip-slide-in" : ""}`} 
                         id="photostrip-canvas-source"

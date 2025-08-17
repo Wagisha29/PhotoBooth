@@ -345,11 +345,6 @@
       background-color: rgb(67, 34, 67);
       cursor: pointer;
   }
-  .studio-result{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
   .result-controls{
       display: flex;
       justify-content: center;
@@ -361,6 +356,31 @@
       top: 50%;
       transform: translateY(-50%);
   }
+
+  /* Responsive adjustments for result-controls */
+  @media (max-width: 768px) {
+    .result-controls {
+      left: 50%;
+      top: auto;
+      bottom: 5px;
+      transform: translateX(-50%);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .result-controls {
+      left: 50%;
+      top: auto;
+      bottom: 5px;
+      transform: translateX(-50%);
+      gap: 10px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 30%;
+    }
+  }
   .photostrip-frame {
     position: absolute;
     left: 100px;
@@ -371,21 +391,37 @@
   
   .studio-result{
     background: linear-gradient(135deg, #ede7f6 0%, #e1bee7 100%);
-      height: 700px;
-      width: 700px;
-      border-radius: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      left: 350px;
-      top: 40px;
+    height: 90vh;
+    width: 90vw;
+    max-width: 700px;
+    max-height: 700px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
-  /* Animate the full result screen from top */
-  .studio-result.slide-in-top {
-    animation: slideDown 0.6s ease-out forwards;
-    opacity: 0;
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .studio-result {
+      height: 90vh;
+      width: 95vw;
+      border-radius: 20px;
+    }
   }
+
+  @media (max-width: 480px) {
+    .studio-result {
+      height: 90vh;
+      width: 98vw;
+      border-radius: 15px;
+    }
+  }
+
   
   @keyframes slideDown {
     0% {
@@ -424,4 +460,18 @@
   .strip-slide-in {
     opacity: 1;
     transform: translateY(0);
+    height: 70vh;
+  }
+
+  /* Responsive adjustments for strip-slide-in */
+  @media (max-width: 768px) {
+    .strip-slide-in {
+      height: 70vh;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .strip-slide-in {
+      height: 70vh;
+    }
   }
